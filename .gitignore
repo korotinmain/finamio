@@ -1,0 +1,124 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Flutter/Dart/Pub
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+.metadata
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# Symbolication / obfuscation
+app.*.symbols
+app.*.map.json
+
+# Coverage
+coverage/
+*.lcov
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Firebase & secrets  ← NEVER commit real credentials
+# ─────────────────────────────────────────────────────────────────────────────
+# Uncomment the lines below once you move secrets to a CI/CD secret manager
+# or use --dart-define-from-file for local development.
+#
+# lib/firebase_options.dart
+# ios/Runner/GoogleService-Info.plist
+# android/app/google-services.json
+
+# Local environment / secrets files
+.env
+.env.*
+*.secret
+secrets/
+Config/Secrets.xcconfig
+
+# ─────────────────────────────────────────────────────────────────────────────
+# iOS / Xcode
+# ─────────────────────────────────────────────────────────────────────────────
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/App.framework
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/ServiceDefinitions.json
+
+# Xcode build & user data
+**/DerivedData/
+**/*.xccheckout
+**/*.xcscmblueprint
+**/*.moved-aside
+**/xcuserdata/
+**/*.pbxuser
+!default.pbxuser
+**/*.mode1v3
+!default.mode1v3
+**/*.mode2v3
+!default.mode2v3
+**/*.perspectivev3
+!default.perspectivev3
+
+# Signing & provisioning (store in Fastlane/CI secrets instead)
+*.p12
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+
+# ─────────────────────────────────────────────────────────────────────────────
+# macOS / system
+# ─────────────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# ─────────────────────────────────────────────────────────────────────────────
+# IDEs
+# ─────────────────────────────────────────────────────────────────────────────
+
+# VS Code — keep launch.json and settings, ignore workspace-local caches
+.history/
+.vscode/settings.json
+# (launch.json is intentionally committed — see .vscode/launch.json)
+
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+.atom/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Miscellaneous
+# ─────────────────────────────────────────────────────────────────────────────
+*.class
+*.log
+*.pyc
+*.swp
+.swiftpm/
+.build/
+.buildlog/
+.svn/
+migrate_working_dir/
+
+# Android build artefacts (if Android is added later)
+/android/app/debug
+/android/app/profile
+/android/app/release
