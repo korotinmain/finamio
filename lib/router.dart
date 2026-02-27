@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../providers/auth_provider.dart';
 import '../screens/splash/splash_screen.dart';
 import '../screens/auth/sign_in_screen.dart';
+import '../screens/auth/register_screen.dart';
+import '../screens/auth/forgot_password_screen.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/transactions/transactions_screen.dart';
 import '../screens/transactions/add_transaction_screen.dart';
@@ -36,10 +38,17 @@ final routerProvider = Provider<GoRouter>((ref) {
       final isLoggedIn = authState.valueOrNull != null;
       final path = state.uri.path;
 
-      if (!isLoggedIn && path != '/sign-in' && path != '/') {
+      if (!isLoggedIn &&
+          path != '/sign-in' &&
+          path != '/register' &&
+          path != '/forgot-password' &&
+          path != '/') {
         return '/sign-in';
       }
-      if (isLoggedIn && path == '/sign-in') {
+      if (isLoggedIn &&
+          (path == '/sign-in' ||
+              path == '/register' ||
+              path == '/forgot-password')) {
         return '/home';
       }
       return null;
@@ -47,6 +56,11 @@ final routerProvider = Provider<GoRouter>((ref) {
     routes: [
       GoRoute(path: '/', builder: (_, __) => const SplashScreen()),
       GoRoute(path: '/sign-in', builder: (_, __) => const SignInScreen()),
+      GoRoute(path: '/register', builder: (_, __) => const RegisterScreen()),
+      GoRoute(
+        path: '/forgot-password',
+        builder: (_, __) => const ForgotPasswordScreen(),
+      ),
 
       // ── Main shell ──────────────────────────────────────────────────────
       ShellRoute(

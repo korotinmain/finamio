@@ -4,10 +4,9 @@ import 'package:logger/logger.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn(
-    clientId:
-        '859819823652-6b4f4tjfbghesln1bbqe28k62otbghin.apps.googleusercontent.com',
-  );
+  // clientId is intentionally omitted — the iOS OAuth client ID is read
+  // automatically from GoogleService-Info.plist (CLIENT_ID key).
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
   final Logger _log = Logger();
 
   Stream<User?> get authStateChanges => _auth.authStateChanges();
@@ -65,6 +64,16 @@ class AuthService {
       return result;
     } on FirebaseAuthException catch (e, st) {
       _log.e('Register error', error: e, stackTrace: st);
+      rethrow;
+    }
+  }
+
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email.trim());
+      _log.i('Password reset email sent to $email');
+    } on FirebaseAuthException catch (e, st) {
+      _log.e('Password reset error', error: e, stackTrace: st);
       rethrow;
     }
   }
