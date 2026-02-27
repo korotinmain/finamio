@@ -26,12 +26,9 @@ coverage/
 # ─────────────────────────────────────────────────────────────────────────────
 # Firebase & secrets  ← NEVER commit real credentials
 # ─────────────────────────────────────────────────────────────────────────────
-# Uncomment the lines below once you move secrets to a CI/CD secret manager
-# or use --dart-define-from-file for local development.
-#
-# lib/firebase_options.dart
-# ios/Runner/GoogleService-Info.plist
-# android/app/google-services.json
+lib/firebase_options.dart
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
 
 # Local environment / secrets files
 .env
